@@ -1,0 +1,8 @@
+veriable = changing memory location value
+#include<studio.h>
+#include<conio.h>
+int main{
+int array[5]={1,2,3,4,5};
+int size;
+clroer();//no output preriously virable
+printf("%d",&size);
