@@ -20,7 +20,7 @@ public class Solution {
         }
     }
 }
-////**********//////////////***************************////////////sum of array
+////**********//////////////***************************////////////sum of array////**********//////////////***************************////////////
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -57,4 +57,53 @@ public class Solution {
    
     }
 
+}
+
+
+
+
+
+////**********//////////////***************************////////////Alice and Bob comperison////**********//////////////***************************////////////
+
+import java.io.*;
+import java.util.*;
+
+class Result {
+
+    public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        int alicePoints = 0;
+        int bobPoints = 0;
+
+        for (int i = 0; i < a.size(); i++) {
+            if (a.get(i) > b.get(i)) {
+                alicePoints++;
+            } else if (a.get(i) < b.get(i)) {
+                bobPoints++;
+            }
+        }
+
+        List<Integer> result = new ArrayList<>();
+        result.add(alicePoints);
+        result.add(bobPoints);
+
+        return result;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> a = new ArrayList<>();
+        List<Integer> b = new ArrayList<>();
+
+        for (int i = 0; i < 3; i++) {
+            a.add(sc.nextInt());
+        }
+        for (int i = 0; i < 3; i++) {
+            b.add(sc.nextInt());
+        }
+
+        List<Integer> result = Result.compareTriplets(a, b);
+        System.out.println(result.get(0) + " " + result.get(1));
+    }
 }
