@@ -33,3 +33,53 @@ bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
     return 0 ;
     
 }
+-------------------------------------------------------------------2nd Part
+DoublyLinkedListNode* sortedInsert(DoublyLinkedListNode* llist, int data) {
+    DoublyLinkedListNode* a = 0;
+    DoublyLinkedListNode* b = llist;
+    for (; b && b->data < data; a = b, b = b->next) {}
+    auto newNode = new DoublyLinkedListNode(data);
+    if (b != nullptr) {
+        b->prev = newNode;
+        newNode->next = b;
+    }
+    if (a != nullptr) {
+        a->next = newNode;
+        newNode->prev = a;
+    } else {
+        return newNode;
+    }
+    return llist;
+}
+
+
+
+
+
+public static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode llist, int data) {
+            DoublyLinkedListNode temp = llist;
+            DoublyLinkedListNode newNode = new DoublyLinkedListNode(data);
+            
+            if(data < temp.data){
+                newNode.next = llist;
+                llist.prev = newNode;
+                return newNode;
+            }
+            
+            for(;temp.next != null && temp.data < data; temp = temp.next);
+            
+            if(temp.next == null && temp.data < data){
+                newNode.prev = temp;
+                temp.next = newNode; 
+            }
+            else{
+                newNode.prev = temp.prev;
+                newNode.prev.next = newNode;
+                newNode.next = temp;
+                temp.prev = newNode;
+            }         
+            
+            return llist;
+
+    }
+
